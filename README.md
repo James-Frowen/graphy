@@ -14,7 +14,7 @@ Main differences:
 
 add to `manifest.json`
 ```
-"com.james-frowen.graphy": "https://github.com/James-Frowen/graphy.git?path=/Assets/Graphy#v1.0.0",
+"com.james-frowen.graphy": "https://github.com/James-Frowen/graphy.git?path=/Assets/Graphy#v1.1.1",
 ```
 
 note `#v1.0.0` can be changed with branch or commit hash

@@ -16,6 +16,22 @@ PrefabInstance:
       propertyPath: _dataSource
       value: 
       objectReference: {fileID: 1237921747688144293}
+    - target: {fileID: 4486394048442802926, guid: c29ab92f32a172e4ab4a7be80c68b7f4, type: 3}
+      propertyPath: _settings.GoodThreshold
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486394048442802926, guid: c29ab92f32a172e4ab4a7be80c68b7f4, type: 3}
+      propertyPath: _settings.NormalThreshold
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486394048442802926, guid: c29ab92f32a172e4ab4a7be80c68b7f4, type: 3}
+      propertyPath: _settings.CautionThreshold
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486394048442802926, guid: c29ab92f32a172e4ab4a7be80c68b7f4, type: 3}
+      propertyPath: _settings.ExcellentThreshold
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8292743463721104639, guid: c29ab92f32a172e4ab4a7be80c68b7f4, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -122,4 +138,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1a241dea8bfa7418add8cbd3f77381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Client: {fileID: 0}

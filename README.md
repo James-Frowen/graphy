@@ -4,8 +4,9 @@ Main differences:
 - 5 levels instead fo 3 (Excellent, Good, Normal, Caution, Critical)
 - Uses Textmeshpro
 - char arrays to get non-alloc strings instead of lookup tables
-- Simple interfaces to create new graphs, just implement `GraphDataSource`
+- Simple interfaces to create new graphs, just implement `GraphDataSource` and `GraphText`
 
+![preview image](./FpsAndPing.png)
 
 ## Install
 
@@ -22,3 +23,4 @@ note `#v1.0.0` can be changed with branch or commit hash
 
 - Copy files from `Assets/Graphy`
 - Make sure you have Textmeshpro package
+

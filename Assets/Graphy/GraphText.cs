@@ -42,7 +42,7 @@ namespace JamesFrowen.Graphy
             _sum += newValue;
             _count++;
 
-            _updateTimer += Time.deltaTime;
+            _updateTimer += Time.unscaledDeltaTime;
             if (_updateTimer > _updateInterval)
             {
                 _updateTimer = 0f;

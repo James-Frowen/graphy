@@ -25,7 +25,7 @@ namespace JamesFrowen.Graphy
 
         public void Update()
         {
-            _updateTimer += Time.deltaTime;
+            _updateTimer += Time.unscaledDeltaTime;
 
             var count = FrameTimingManager.GetLatestTimings(1, _frames);
             if (count == 0)

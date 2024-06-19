@@ -49,7 +49,7 @@ namespace JamesFrowen.ScriptableVariables
             // add rounder so that value will round to nearest int, not just floor
             value += _rounder;
 
-            if (value >= _max)
+            if (value >= _max || double.IsNaN(value))
                 SetOutOfBounds();
             else
                 SetValue(value);

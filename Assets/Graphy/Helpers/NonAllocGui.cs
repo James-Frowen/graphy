@@ -43,13 +43,17 @@ namespace JamesFrowen.ScriptableVariables
 
         public char[] GetChars(double value)
         {
-            if (value < 0)
-                throw new System.ArgumentOutOfRangeException(nameof(value), "Value must be positive");
+            // Check for invalid values
+            if (value < 0 || !double.IsFinite(value))
+            {
+                SetOutOfBounds();
+                return Chars;
+            }
 
-            // add rounder so that value will round to nearest int, not just floor
+            // Add rounder so that value will round to nearest int, not just floor
             value += _rounder;
 
-            if (value >= _max || double.IsNaN(value))
+            if (value >= _max)
                 SetOutOfBounds();
             else
                 SetValue(value);

@@ -7,6 +7,7 @@ namespace JamesFrowen.ScriptableVariables
     {
         private const char EMPTY = ' ';
         private const char OUT_OF_BOUNDS = 'x';
+        private const char INVALID = '-';
         private static readonly char[] Numbers = new char[]
         {
             '0',
@@ -46,7 +47,7 @@ namespace JamesFrowen.ScriptableVariables
             // Check for invalid values
             if (value < 0 || !double.IsFinite(value))
             {
-                SetOutOfBounds();
+                Fill(INVALID);
                 return Chars;
             }
 
@@ -54,25 +55,25 @@ namespace JamesFrowen.ScriptableVariables
             value += _rounder;
 
             if (value >= _max)
-                SetOutOfBounds();
+                Fill(OUT_OF_BOUNDS);
             else
                 SetValue(value);
 
             return Chars;
         }
 
-        private void SetOutOfBounds()
+        private void Fill(char c)
         {
             var offset = _start;
             for (var i = 0; i < _digits; i++)
             {
-                Chars[offset + i] = OUT_OF_BOUNDS;
+                Chars[offset + i] = c;
             }
 
             offset = _start + _digits + 1; // skip one for decimal place
             for (var i = 0; i < _decimals; i++)
             {
-                Chars[offset + i] = OUT_OF_BOUNDS;
+                Chars[offset + i] = c;
             }
         }
 

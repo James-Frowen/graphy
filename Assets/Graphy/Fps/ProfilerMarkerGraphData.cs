@@ -6,7 +6,7 @@ namespace JamesFrowen.Graphy
     public class ProfilerMarkerGraphData : GraphDataSource
     {
         [SerializeField] private string _markerName = "PlayerLoop";
-        [SerializeField] private ProfilerCategory _category = ProfilerCategory.Scripts;
+        [SerializeField] private ProfilerCategoryEnum _category = ProfilerCategoryEnum.Scripts;
 
         private ProfilerRecorder _recorder;
 
@@ -34,7 +34,7 @@ namespace JamesFrowen.Graphy
         /// </summary>
         /// <param name="markerName">The name of the profiler marker to record.</param>
         /// <param name="category">The profiler category the marker belongs to.</param>
-        public void SetMarker(string markerName, ProfilerCategory category)
+        public void SetMarker(string markerName, ProfilerCategoryEnum category)
         {
             _markerName = markerName;
             _category = category;
@@ -51,7 +51,7 @@ namespace JamesFrowen.Graphy
             if (string.IsNullOrEmpty(_markerName))
                 return;
 
-            _recorder = ProfilerRecorder.StartNew(_category, _markerName);
+            _recorder = ProfilerRecorder.StartNew(new ProfilerCategory((ushort)_category), _markerName);
         }
 
         private void StopRecorder()
@@ -59,5 +59,29 @@ namespace JamesFrowen.Graphy
             if (_recorder.Valid)
                 _recorder.Dispose();
         }
+    }
+
+    [System.Serializable]
+    public enum ProfilerCategoryEnum : ushort
+    {
+        Render = 0,
+        Scripts = 1,
+        Gui = 4,
+        Physics = 5,
+        Physics2D = 33,
+        Animation = 6,
+        Ai = 7,
+        Audio = 8,
+        Video = 11,
+        Particles = 12,
+        Lighting = 13,
+        Network = 14,
+        Loading = 15,
+        Vr = 22,
+        Input = 30,
+        Memory = 23,
+        VirtualTexturing = 31,
+        FileIO = 25,
+        Internal = 24,
     }
 }

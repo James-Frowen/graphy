@@ -51,7 +51,31 @@ namespace JamesFrowen.Graphy
             if (string.IsNullOrEmpty(_markerName))
                 return;
 
-            _recorder = ProfilerRecorder.StartNew(new ProfilerCategory((ushort)_category), _markerName);
+            ProfilerCategory category = _category switch
+            {
+                ProfilerCategoryEnum.Render => ProfilerCategory.Render,
+                ProfilerCategoryEnum.Scripts => ProfilerCategory.Scripts,
+                ProfilerCategoryEnum.Gui => ProfilerCategory.Gui,
+                ProfilerCategoryEnum.Physics => ProfilerCategory.Physics,
+                ProfilerCategoryEnum.Physics2D => ProfilerCategory.Physics2D,
+                ProfilerCategoryEnum.Animation => ProfilerCategory.Animation,
+                ProfilerCategoryEnum.Ai => ProfilerCategory.Ai,
+                ProfilerCategoryEnum.Audio => ProfilerCategory.Audio,
+                ProfilerCategoryEnum.Video => ProfilerCategory.Video,
+                ProfilerCategoryEnum.Particles => ProfilerCategory.Particles,
+                ProfilerCategoryEnum.Lighting => ProfilerCategory.Lighting,
+                ProfilerCategoryEnum.Network => ProfilerCategory.Network,
+                ProfilerCategoryEnum.Loading => ProfilerCategory.Loading,
+                ProfilerCategoryEnum.Vr => ProfilerCategory.Vr,
+                ProfilerCategoryEnum.Input => ProfilerCategory.Input,
+                ProfilerCategoryEnum.Memory => ProfilerCategory.Memory,
+                ProfilerCategoryEnum.VirtualTexturing => ProfilerCategory.VirtualTexturing,
+                ProfilerCategoryEnum.FileIO => ProfilerCategory.FileIO,
+                ProfilerCategoryEnum.Internal => ProfilerCategory.Internal,
+                _ => ProfilerCategory.Scripts
+            };
+
+            _recorder = ProfilerRecorder.StartNew(category, _markerName);
         }
 
         private void StopRecorder()
